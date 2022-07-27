@@ -95,7 +95,7 @@ deltay4 = ycoord4-median(ycoord4);
 deltax = [deltax1; deltax2; deltax3; deltax4];
 deltay = [deltay1; deltay2; deltay3; deltay4];
 zvec = [zvec1; zvec2; zvec3; zvec4];
-% %% visualize one microgel in 3D space
+%% visualize one microgel in 3D space
 % %data = all_localiz;
 % data = [deltax deltay zvec];
 % if(size(data,2)>3) 
@@ -214,7 +214,7 @@ zvec = [zvec1; zvec2; zvec3; zvec4];
 %    end
 % %medint(isnan(medint))=0;% Replacing NAN values with zeros
 % medint=medint';
-    % visualization
+    %% visualization
     figure_height_in_pixel=600;
     
     figure;
@@ -313,13 +313,8 @@ end
 
  %Namemat = baseNamecsv;
   %save(Namemat, 'data','count', 'V');
-   
-
-
-
-   
+      
 fname_2d = strcat("./PAINT_DiffTemp/toy_example/results/yiwei_fig/new_try",type,string(tmp_index),".png");
-
 saveas(gcf,fname_2d)
     %set(gca,'XTickLabel', d_range-d_dist/2);
     %set(gca,'YTickLabel', h_range+h_dist/2);
