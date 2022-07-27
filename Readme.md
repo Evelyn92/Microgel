@@ -14,6 +14,6 @@ WITHOUT COLOUR CODES DEMONSTRATING SOLVA VALUE
 
 ## Generate Fig 3
 
-*Microgel/4_Microgel_plotter_V1_density/ForFigureThree_GAN.m*
+*Microgel/4_Microgel_plotter_V1_density/ForFigureThree.m*
 
 This file generates Fig3(solva of the point cloud) of each microgel.
