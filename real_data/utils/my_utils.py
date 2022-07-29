@@ -184,7 +184,7 @@ def depict_normalzed_cmf(dataset_dict, sample_per_class = 4, colors = ['g', 'b',
 def depict_cmf_group_aggregation(dataset_dict, colors = ['g', 'b', 'k', 'y', 'm', 'c']):
     """
     This function receives a list of point clouds for a class(PEG,ODS,FOCTS,GLAS) and draws 
-    cumulative distribution function (CDF) all point clouds.
+    cumulative distribution function (CDF) all point clouds w.r.t. distance from points to the center.
     In each row draws 4 point clouds. 
     colors contain 6  diffrent colors. 
     
