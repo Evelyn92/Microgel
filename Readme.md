@@ -4,6 +4,14 @@
 
 This file generates Fig1(density of localization) from 4 samples per temperature.
 
+
+
+*Microgel/4_Microgel_plotter_V1_density/ForFigureOne.m*
+
+Τhis file generates the figs for 20 samples per temperature.
+
+
+
 ## Generate Fig 2
 
 *Microgel/real_data/Recreate_Fig2_gg.ipynb*

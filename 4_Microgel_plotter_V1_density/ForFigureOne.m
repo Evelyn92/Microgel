@@ -1,10 +1,14 @@
-% cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
+cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
 clc
-clear all;
-% close all
+clear all
+close all
+
 % 21 33 35 38 43 53
-temperature = '43';
-micro_index = '12';
+temperature = '53';
+
+for index = 1:20
+% micro_index = '2';
+micro_index = string(index);
 add = strcat("./PAINT_DiffTemp/Core-shell/",temperature,"C/Microgel_plotter_v2_solvatochromism/",micro_index,".3d");
 %add = "./PAINT_DiffTemp/Core-shell/21C/Microgel_plotter_v2_solvatochromism/1.3d"; 
 % all_localiz  = dlmread(add);
@@ -15,13 +19,13 @@ all_localiz  = dlmread(add);
 
 
 % all_localiz  = all_localiz  .* (info(2,:)-info(3,:)) + info(3,:)+ info(1,:);
-intens=all_localiz(:,4);
+% intens=all_localiz(:,4);
 % Yiwei: Find what is the outlier
-UpperSolva = 200;
+% UpperSolva = 200;
 %all_localiz = all_localiz(intens<UpperSolva,:);% if a data point has the Solva>400, throw it away
-all_localiz(intens>UpperSolva,4) = UpperSolva ;
+% all_localiz(intens>UpperSolva,4) = UpperSolva ;
 zvec=all_localiz(:,3);
-intens=all_localiz(:,4);
+% intens=all_localiz(:,4);
 xcoord=all_localiz(:,1);
 deltax = xcoord-median(xcoord);
 ycoord=all_localiz(:,2);
@@ -41,12 +45,11 @@ data(:,3) = 1-data(:,3); %flip z dimension
 % saveas(gcf,fname)
 
     % calculations and preparation of histogram ranges
-    d_axis = sqrt(deltax.^2+deltay.^2);
-    h = (zvec-median(zvec))+400;
-
-     clear count V d_range h_range;
+d_axis = sqrt(deltax.^2+deltay.^2);
+h = (zvec-median(zvec))+400;
+clear count V d_range h_range;
     
-    %% create test data (not needed for real data)
+    % create test data (not needed for real data)
 %     n=100000;
 % 
 %     x=rand(n,1)*200-100;
@@ -57,7 +60,7 @@ data(:,3) = 1-data(:,3); %flip z dimension
 %     centery=0;
 %     centerz=100;
 
-    %% calculations and preparation of histogram ranges
+    % calculations and preparation of histogram ranges
 %     d_axis=sqrt((x-centerx).^2+(y-centery).^2);
 %     h=z;
 
@@ -102,7 +105,7 @@ data(:,3) = 1-data(:,3); %flip z dimension
     
     
          
-    data(:,5)= intens; % for including the solvatochromism
+%     data(:,5)= intens; % for including the solvatochromism
     count=zeros(length(d_range)-1,length(h_range)-1);
     data=data(data(:,3)>0,:); % if a data point is out of the x range, throw it away
     data=data(data(:,4)>0,:);% if a data point is out of the y range, throw it away
@@ -121,7 +124,7 @@ data(:,3) = 1-data(:,3); %flip z dimension
 
 
 
-%% Plotting the localization density wrt median of I_ratio
+% Plotting the localization density wrt median of I_ratio
 %    medint=zeros(length(d_range)-1,length(h_range)-1); %defining the size of "medint" to determine the medians of intensity ratios in specific pixels 
 %   
 %    for d=1:size(d_range',1)-1
@@ -144,7 +147,7 @@ data(:,3) = 1-data(:,3); %flip z dimension
 %    end
 % %medint(isnan(medint))=0;% Replacing NAN values with zeros
 % medint=medint';
-    %% visualization
+    % visualization
     figure_height_in_pixel=600;
     
     figure;
@@ -245,9 +248,9 @@ end
 
 
    
-fname_2d = strcat("./results/visualization/",temperature,"/",temperature,'C_',micro_index,'_2d-density-distr.png');
+fname_2d = strcat("./results/visualization/",temperature,"/real_",temperature,'C_',micro_index,'_2d-density-distr.png');
 saveas(gcf,fname_2d)
     %set(gca,'XTickLabel', d_range-d_dist/2);
     %set(gca,'YTickLabel', h_range+h_dist/2);
-
+end
     %% end Ashvini code ends
