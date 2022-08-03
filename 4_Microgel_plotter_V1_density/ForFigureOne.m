@@ -1,14 +1,15 @@
-cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
+
 clc
 clear all
 close all
 
 % 21 33 35 38 43 53
-temperature = '53';
+temperature = '38';
 
-for index = 1:20
+for index = 1
 % micro_index = '2';
 micro_index = string(index);
+cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
 add = strcat("./PAINT_DiffTemp/Core-shell/",temperature,"C/Microgel_plotter_v2_solvatochromism/",micro_index,".3d");
 %add = "./PAINT_DiffTemp/Core-shell/21C/Microgel_plotter_v2_solvatochromism/1.3d"; 
 % all_localiz  = dlmread(add);
@@ -38,12 +39,14 @@ end
 
 data(:,3) = 1-data(:,3); %flip z dimension
 
-% cloud = pointCloud(data);
+% norm_data = [deltax deltay zvec];
+% cloud = pointCloud(norm_data);
 % pcshow(cloud);
-% 
-% fname = strcat("./results/visualization/",temperature,"/",temperature,'C_',micro_index,'.png');
+% scatter3(deltax, deltay, zvec,'filled');
+% cd D:\forClone\Hiwi\Microgel
+% fname = strcat("./visualization/",temperature,"/pc_",temperature,'C_',micro_index,'.png');
 % saveas(gcf,fname)
-
+% end
     % calculations and preparation of histogram ranges
 d_axis = sqrt(deltax.^2+deltay.^2);
 h = (zvec-median(zvec))+400;
