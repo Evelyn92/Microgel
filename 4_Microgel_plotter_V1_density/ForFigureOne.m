@@ -4,22 +4,42 @@ clear all
 close all
 
 % 21 33 35 38 43 53
-temperature = '38';
+%experiment='_hi-lo_';
+experiment='_drop35_';
+tmp_index = 1;
+if tmp_index ==1
+    temperature = '21';
+elseif tmp_index ==2
+    temperature = '33';
+elseif tmp_index ==3
+    temperature = '35';
+elseif tmp_index ==4
+    temperature = '38';
+elseif tmp_index ==5
+    temperature = '43';
+else
+    temperature = '53';
+end
 
-for index = 1
+type = 'gg';
+% type = '_go';
+for index = 1:4
 % micro_index = '2';
 micro_index = string(index);
-cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
-add = strcat("./PAINT_DiffTemp/Core-shell/",temperature,"C/Microgel_plotter_v2_solvatochromism/",micro_index,".3d");
+% cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\rez_hi_lo
+cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\result_drop35
+% add = strcat("./PAINT_DiffTemp/Core-shell/",temperature,"C/Microgel_plotter_v2_solvatochromism/",micro_index,".3d");
+add = strcat("./results/results_mtemp/",'sample_',micro_index,type,string(tmp_index),".ply");
 %add = "./PAINT_DiffTemp/Core-shell/21C/Microgel_plotter_v2_solvatochromism/1.3d"; 
 % all_localiz  = dlmread(add);
 %add = "./results/results_mtemp/gg5.ply";
 all_localiz  = dlmread(add);
-% add_info = "./results/results_mtemp/info5.ply";
-% info  = dlmread(add_info);
+add_info = strcat("./results/results_mtemp/",'sample_',micro_index,'info',string(tmp_index),".ply");
+
+info  = dlmread(add_info);
 
 
-% all_localiz  = all_localiz  .* (info(2,:)-info(3,:)) + info(3,:)+ info(1,:);
+all_localiz  = all_localiz  .* (info(2,:)-info(3,:)) + info(3,:)+ info(1,:);
 % intens=all_localiz(:,4);
 % Yiwei: Find what is the outlier
 % UpperSolva = 200;
@@ -41,10 +61,13 @@ data(:,3) = 1-data(:,3); %flip z dimension
 
 % norm_data = [deltax deltay zvec];
 % cloud = pointCloud(norm_data);
-% pcshow(cloud);
-% scatter3(deltax, deltay, zvec,'filled');
-% cd D:\forClone\Hiwi\Microgel
-% fname = strcat("./visualization/",temperature,"/pc_",temperature,'C_',micro_index,'.png');
+
+% pcshow(cloud,'MarkerSize',40);
+% title(gca,strcat(temperature, 'C-',micro_index));
+% % set(gca, 'color', 'w');
+% % scatter3(deltax, deltay, zvec,'filled');
+% cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_hi_lo
+% fname = strcat(temperature,"/pc_",experiment,type,'_',temperature,'C_',micro_index,'.png');
 % saveas(gcf,fname)
 % end
     % calculations and preparation of histogram ranges
@@ -250,8 +273,10 @@ end
 
 
 
-   
-fname_2d = strcat("./results/visualization/",temperature,"/real_",temperature,'C_',micro_index,'_2d-density-distr.png');
+% cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_hi_lo
+cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_drop35
+% fname = strcat(temperature,"/pc_",experiment,type,'_',temperature,'C_',micro_index,'.png');  
+fname_2d = strcat(temperature,"/2d-density-distr_",experiment,temperature,'C_',micro_index,'.png');
 saveas(gcf,fname_2d)
     %set(gca,'XTickLabel', d_range-d_dist/2);
     %set(gca,'YTickLabel', h_range+h_dist/2);

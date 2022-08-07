@@ -1,8 +1,18 @@
-cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
+
 clc
 clear all;
 % close all
 % 21 33 35 38 43 53
+
+%experiment='_hi-lo_';
+experiment='_hi-lo_';
+if strcmp(experiment,'_hi-lo_')
+    cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\rez_hi_lo
+else
+    cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\result_drop35
+end
+
+
 
 % micro_index = '12';
 type = 'gg';%or "_go"
@@ -23,15 +33,15 @@ else
 end
 
 
-add1 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'sample_',string(1),type,string(tmp_index),".ply");
-add2 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'sample_',string(2),type,string(tmp_index),".ply");
-add3 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'sample_',string(3),type,string(tmp_index),".ply");
-add4 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'sample_',string(4),type,string(tmp_index),".ply");
-add = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'gg1',".ply");
-all_localiz_test  = dlmread(add);
-add_info_test = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'info1',".ply");
-info_test = dlmread(add_info_test);
-all_localiz_test  = all_localiz_test  .* (info_test(2,:)-info_test(3,:)) + info_test(3,:)+ info_test(1,:);
+add1 = strcat("./results/results_mtemp/",'sample_',string(1),type,string(tmp_index),".ply");
+add2 = strcat("./results/results_mtemp/",'sample_',string(2),type,string(tmp_index),".ply");
+add3 = strcat("./results/results_mtemp/",'sample_',string(3),type,string(tmp_index),".ply");
+add4 = strcat("./results/results_mtemp/",'sample_',string(4),type,string(tmp_index),".ply");
+% add = strcat("./results/results_mtemp/",'gg1',".ply");
+% all_localiz_test  = dlmread(add);
+% add_info_test = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/",'info1',".ply");
+% info_test = dlmread(add_info_test);
+% all_localiz_test  = all_localiz_test  .* (info_test(2,:)-info_test(3,:)) + info_test(3,:)+ info_test(1,:);
 % all_localiz  = dlmread(add);
 
 all_localiz1  = dlmread(add1);
@@ -39,10 +49,10 @@ all_localiz2  = dlmread(add2);
 all_localiz3  = dlmread(add3);
 all_localiz4  = dlmread(add4);
 
-add_info1 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/sample_",string(1),'info',string(tmp_index),".ply");
-add_info2 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/sample_",string(2),'info',string(tmp_index),".ply");
-add_info3 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/sample_",string(3),'info',string(tmp_index),".ply");
-add_info4 = strcat("./PAINT_DiffTemp/toy_example/results/results_mtemp/sample_",string(4),'info',string(tmp_index),".ply");
+add_info1 = strcat("./results/results_mtemp/",'sample_',string(1),'info',string(tmp_index),".ply");
+add_info2 = strcat("./results/results_mtemp/",'sample_',string(2),'info',string(tmp_index),".ply");
+add_info3 = strcat("./results/results_mtemp/",'sample_',string(3),'info',string(tmp_index),".ply");
+add_info4 = strcat("./results/results_mtemp/",'sample_',string(4),'info',string(tmp_index),".ply");
 
 %
 info1  = dlmread(add_info1);
@@ -59,34 +69,34 @@ all_localiz4  = all_localiz4  .* (info4(2,:)-info4(3,:)) + info4(3,:)+ info4(1,:
 all_localiz = [all_localiz1;all_localiz2;all_localiz3;all_localiz4];
 
 % all_localiz  = all_localiz  .* (info(2,:)-info(3,:)) + info(3,:)+ info(1,:);
-intens=all_localiz(:,4);
+% intens=all_localiz(:,4);
 % Yiwei: Find what is the outlier
 UpperSolva = 400;
 %all_localiz = all_localiz(intens<UpperSolva,:);% if a data point has the Solva>400, throw it away
 % all_localiz(intens>UpperSolva,4) = UpperSolva ;
 zvec1=all_localiz1(:,3);
-intens1=all_localiz1(:,4);
+% intens1=all_localiz1(:,4);
 xcoord1=all_localiz1(:,1);
 deltax1 = xcoord1-median(xcoord1);
 ycoord1=all_localiz1(:,2);
 deltay1 = ycoord1-median(ycoord1);
 
 zvec2=all_localiz2(:,3);
-intens2=all_localiz2(:,4);
+% intens2=all_localiz2(:,4);
 xcoord2=all_localiz2(:,1);
 deltax2 = xcoord2-median(xcoord2);
 ycoord2=all_localiz2(:,2);
 deltay2 = ycoord2-median(ycoord2);
 
 zvec3=all_localiz3(:,3);
-intens3=all_localiz3(:,4);
+% intens3=all_localiz3(:,4);
 xcoord3=all_localiz3(:,1);
 deltax3 = xcoord3-median(xcoord3);
 ycoord3=all_localiz3(:,2);
 deltay3 = ycoord3-median(ycoord3);
 
 zvec4=all_localiz4(:,3);
-intens4=all_localiz4(:,4);
+% intens4=all_localiz4(:,4);
 xcoord4=all_localiz4(:,1);
 deltax4 = xcoord4-median(xcoord4);
 ycoord4=all_localiz4(:,2);
@@ -95,7 +105,7 @@ deltay4 = ycoord4-median(ycoord4);
 deltax = [deltax1; deltax2; deltax3; deltax4];
 deltay = [deltay1; deltay2; deltay3; deltay4];
 zvec = [zvec1; zvec2; zvec3; zvec4];
-%% visualize one microgel in 3D space
+% visualize one microgel in 3D space
 % %data = all_localiz;
 % data = [deltax deltay zvec];
 % if(size(data,2)>3) 
@@ -172,7 +182,7 @@ zvec = [zvec1; zvec2; zvec3; zvec4];
     
     
          
-    data(:,5)= intens; % for including the solvatochromism
+%     data(:,5)= intens; % for including the solvatochromism
     count=zeros(length(d_range)-1,length(h_range)-1);
     data=data(data(:,3)>0,:); % if a data point is out of the x range, throw it away
     data=data(data(:,4)>0,:);% if a data point is out of the y range, throw it away
@@ -214,7 +224,7 @@ zvec = [zvec1; zvec2; zvec3; zvec4];
 %    end
 % %medint(isnan(medint))=0;% Replacing NAN values with zeros
 % medint=medint';
-    %% visualization
+    % visualization
     figure_height_in_pixel=600;
     
     figure;
@@ -313,8 +323,13 @@ end
 
  %Namemat = baseNamecsv;
   %save(Namemat, 'data','count', 'V');
-      
-fname_2d = strcat("./PAINT_DiffTemp/toy_example/results/yiwei_fig/new_try",type,string(tmp_index),".png");
+if strcmp(experiment,'_hi-lo_')
+    cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_hi_lo
+else
+    cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_drop35
+end
+fname_2d = strcat(temperature,"/average_2d-density-distr",experiment,temperature,'C','.png');
+% fname_2d = strcat("./PAINT_DiffTemp/toy_example/results/yiwei_fig/new_try",type,string(tmp_index),".png");
 saveas(gcf,fname_2d)
     %set(gca,'XTickLabel', d_range-d_dist/2);
     %set(gca,'YTickLabel', h_range+h_dist/2);
