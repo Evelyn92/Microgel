@@ -6,7 +6,7 @@ close all
 % 21 33 35 38 43 53
 %experiment='_hi-lo_';
 experiment='_drop35_';
-tmp_index = 1;
+tmp_index = 6;
 if tmp_index ==1
     temperature = '21';
 elseif tmp_index ==2
@@ -21,7 +21,7 @@ else
     temperature = '53';
 end
 
-type = 'gg';
+type = '_go';
 % type = '_go';
 for index = 1:4
 % micro_index = '2';
@@ -273,10 +273,11 @@ end
 
 
 
+
 % cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_hi_lo
 cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\07.08\visualization_drop35
 % fname = strcat(temperature,"/pc_",experiment,type,'_',temperature,'C_',micro_index,'.png');  
-fname_2d = strcat(temperature,"/2d-density-distr_",experiment,temperature,'C_',micro_index,'.png');
+fname_2d = strcat(temperature,"/go_2d-density-distr_",experiment,temperature,'C_',micro_index,'.png');
 saveas(gcf,fname_2d)
     %set(gca,'XTickLabel', d_range-d_dist/2);
     %set(gca,'YTickLabel', h_range+h_dist/2);

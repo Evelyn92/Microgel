@@ -1,18 +1,31 @@
-cd D:\NutCloud\我的坚果云\RWTH-Study\Hiwi\20.07\4_Microgel_plotter_V1_density
+cd D:\forClone\Hiwi\Microgel\4_Microgel_plotter_V1_density
 clc
 clear all
 close all
 
 % 21 33 35 38 43 53
-temperature = '53';
+%temperature = '53';
+% FOCTS ODS PEG GLAS
+className = 'PEG';
 density_vector = [];
-for index = 1:20
+if strcmp(className, 'GLAS')
+    max_index = 10;
+elseif strcmp(className, 'FOCTS')
+    max_index = 8;
+elseif strcmp(className, 'PEG')
+    max_index = 8;
+else
+    max_index = 16;
+end
+
+for index = 0:0
 % micro_index = '2';
 micro_index = string(index);
-add = strcat("./PAINT_DiffTemp/Core-shell/",temperature,"C/Microgel_plotter_v2_solvatochromism/",micro_index,".3d");
+add = strcat("../24/",className,'/NiPMAM/24_',className,'_NiPMAM_',string(index),'.3d');
 %add = "./PAINT_DiffTemp/Core-shell/21C/Microgel_plotter_v2_solvatochromism/1.3d"; 
 % all_localiz  = dlmread(add);
 %add = "./results/results_mtemp/gg5.ply";
+
 all_localiz  = dlmread(add);
 % add_info = "./results/results_mtemp/info5.ply";
 % info  = dlmread(add_info);
@@ -38,8 +51,9 @@ end
 
 data(:,3) = 1-data(:,3); %flip z dimension
 
-% cloud = pointCloud(data);
-% pcshow(cloud);
+cloud = pointCloud(data);
+pcshow(cloud);
+
 % 
 % fname = strcat("./results/visualization/",temperature,"/",temperature,'C_',micro_index,'.png');
 % saveas(gcf,fname)
