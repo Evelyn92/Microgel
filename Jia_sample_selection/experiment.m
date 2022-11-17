@@ -3,7 +3,7 @@ clc;
 cd D:\forClone\Hiwi\Microgel\Jia_sample_selection
 %1) read the entire slide: (the three .3d files contain the data from the Nano Letters paper)
 cloud_add{1} = 'LHA_FOCTS_NIPMAM_ALL.3d';
-cloud_add{2} = 'LHA_ODS_NIPMAM_ALL.3d.3d';
+cloud_add{2} = 'LHA_ODS_NIPMAM_ALL.3d';
 cloud_add{3} = 'LHA_PEG_NIPMAM_ALL.3d';
 
 save_add{1} = './dataset/focts/'; 
@@ -11,7 +11,7 @@ save_add{2} = './dataset/ods/';
 save_add{3} = './dataset/peg/';
 
 
-for id_mg = 2:2
+for id_mg = 1:3
 cloud = read_point_cloud(cloud_add{id_mg});    
 %2) detect individual microgels:
 [centers_x, centers_y, x_range, y_range] = detect_gels(cloud, 0);
