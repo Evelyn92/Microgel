@@ -4,7 +4,8 @@ clc;
 close all;
 %% Configurations 
 %Change the path to your folder
-cd ("D:\forClone\Hiwi\Sample_selection") %The path to the main.m folder
+path = "C:\Users\evyji\Desktop\tmp\Sample_selection_subplots\Sample_selection";
+cd (path) %The path to the main.m folder
 
 %The max num of samples that will be extracted from the slides for each class.
 max_samples = 15; %you can set 78 for ODS
@@ -60,5 +61,5 @@ SampleSelection(save_add, processed_path,class_name,min_inx, max_inx, selected_s
 close all;
 
 %% 4) Display the selected samples and discareded ones
-SelectedVsDiscarded();
+SelectedVsDiscarded(path);
 close all;

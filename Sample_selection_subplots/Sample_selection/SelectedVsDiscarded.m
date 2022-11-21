@@ -1,9 +1,10 @@
 
 
-function SelectedVsDiscarded()
+function SelectedVsDiscarded(path)
+cd (path)
 clc;
 clear all;
-cd ('D:\forClone\Hiwi\Sample_selection')
+
 class_name = {'FOCTS','ODS','PEG'};
 selected_path = 'selected_samples/';
 
