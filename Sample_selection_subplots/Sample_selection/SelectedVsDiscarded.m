@@ -1,8 +1,5 @@
-
-
 function SelectedVsDiscarded(path)
 cd (path)
-clc;
 clear all;
 
 class_name = {'FOCTS','ODS','PEG'};

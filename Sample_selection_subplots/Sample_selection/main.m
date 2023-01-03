@@ -4,12 +4,13 @@ clc;
 close all;
 %% Configurations 
 %Change the path to your folder
-path = "C:\Users\evyji\Desktop\tmp\Sample_selection_subplots\Sample_selection";
+path = "D:\forClone\Hiwi\Microgel\Sample_selection_subplots\Sample_selection";
 cd (path) %The path to the main.m folder
 
-%The max num of samples that will be extracted from the slides for each class.
-max_samples = 15; %you can set 78 for ODS
-%process the candidate samples from min_inx=1 to max_inx in each class 
+%The num of samples that will be extracted from the slides for each class.
+max_samples = 10; %you can set 78 for ODS
+
+%The number of candidate samples (from min_inx=1 to max_inx) in each class 
 max_inx = 10;
 
 % The number of selected samples
@@ -56,7 +57,6 @@ end
 processed_path = 'processed_samples/';
 min_inx = 1;
 SampleSelection(save_add, processed_path,class_name,min_inx, max_inx, selected_sample_num)
-
 
 close all;
 
