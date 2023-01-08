@@ -35,7 +35,6 @@ add = strcat("./results/results_mtemp/",'sample_',micro_index,type,string(tmp_in
 %add = "./results/results_mtemp/gg5.ply";
 all_localiz  = dlmread(add);
 add_info = strcat("./results/results_mtemp/",'sample_',micro_index,'info',string(tmp_index),".ply");
-
 info  = dlmread(add_info);
 
 
