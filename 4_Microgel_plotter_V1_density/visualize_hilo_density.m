@@ -4,7 +4,7 @@ clc;
 close all;
 userpath('clear')
 
-path = "D:\forClone\Hiwi\results_mtemp_hilo";
+path = "D:\forClone\Hiwi\Microgel\results_mtemp_hilo";
 for tmp_inx = 1:6
 
 if tmp_inx ==1
@@ -20,7 +20,7 @@ elseif tmp_inx ==5
 else
     tmp_info = '53C';
 end
-data_type = '_go';%'gg' or '_go'
+data_type = 'gg';%'gg' or '_go'
 
 for sample_inx = 1:4
 
@@ -114,15 +114,16 @@ end
     xlim([0.5 max(d_range/d_dist)+1]);
     ylim([0.5 max(h_range/h_dist)+1]);
     title_info = strcat(tmp_info,'-',string(sample_inx));
-    title('\fontsize{30}\fontname{Calibri}'+title_info);
+    %title('\fontsize{30}\fontname{Calibri}'+title_info);
 
     %title('\fontsize{70}\fontname{Calibri} 21 C', 'position',[20.424 82.9050 0]); 
-    xlabel('Dist. from symmetry axis / nm','FontSize',22);
-    ylabel('Relative z / nm','FontSize',22);
+    
     set(gca,'XTick',d_range/d_dist*labelx_dist/d_dist+0.5);
-    set(gca,'XTickLabel',0:labelx_dist:max(d_range));
+    set(gca,'XTickLabel',0:labelx_dist:max(d_range),'fontsize',28);
     set(gca,'YTick',h_range/h_dist*labely_dist/h_dist+0.5);
-    set(gca,'YTickLabel',-400:labely_dist:400);
+    set(gca,'YTickLabel',-400:labely_dist:400, 'fontsize',28);
+    xlabel('Dist. from symmetry axis / nm','FontSize',28);
+    ylabel('Relative z / nm','FontSize',28);
 %     set(gcf,'color','w');%Ashvini test
 %         set(gca,'YTick',-300:10:300);
 %         set(gca,'YTickLabel',0:labely_dist:max(h_range));
@@ -161,7 +162,7 @@ else
 
 end
 
-fname_2d = strcat(path,'/2d_',data_type,tmp_info,'_sample',string(sample_inx),'.png');
+fname_2d = strcat(path,'/single_2d','/2d_',data_type,tmp_info,'_sample',string(sample_inx),'.png');
 saveas(gcf,fname_2d)
 
 end
