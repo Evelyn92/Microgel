@@ -1,27 +1,71 @@
-## Generate Fig 1
+## Dataset: PAINT_DiffTemp
 
-*Microgel/4_Microgel_plotter_V1_density/ForFigureOne_GAN.m*
+Collected real dataset:
 
-This file generates Fig1(density of localization) from 4 samples per temperature.
+.\Microgel\4_Microgel_plotter_V1_density\PAINT_DiffTemp\Core-shell\\*C\Microgel_plotter_v2_solvatochromism\
 
-
-
-*Microgel/4_Microgel_plotter_V1_density/ForFigureOne.m*
-
-Τhis file generates the figs for 20 samples per temperature.
+where "\*C" means the dataset for the samples at temperature $*^\circ C$
 
 
 
-## Generate Fig 2
+Generated dataset:
 
-*Microgel/real_data/Recreate_Fig2_gg.ipynb*
+.\Microgel\4_Microgel_plotter_V1_density\results_mtemp\results_mtemp_hilo
 
-This file generates Fig2(2D projections) of each microgel.
+### Matlab files
 
-WITHOUT COLOUR CODES DEMONSTRATING SOLVA VALUE
+Generate the 2d density for generated "go" "gg" samples:
 
-## Generate Fig 3
+.\Microgel\4_Microgel_plotter_V1_density\visualize_hilo_density
 
-*Microgel/4_Microgel_plotter_V1_density/ForFigureThree.m*
 
-This file generates Fig3(solva of the point cloud) of each microgel.
+
+## Dataset: 24
+
+### Features
+
+
+
+
+
+## Dataset: 16FM
+
+### Features
+
+Microgel point cloud in 2d coordinate with lifetime values as the third dimension.
+
+### Dataset folders
+
+Collected real dataset:
+
+.\Microgel\16-FM\lifetime
+
+Generated dataset: 
+
+.\Microgel\16-FM\results_lifetime
+
+Notes: 
+
+- "sample_go1.ply" denotes the original real sample 1
+
+- "sample_gg1.ply" refers to the corresponding generated sample 1.
+
+- "sample_info1.ply" includes the information for normalizing "sample_go1.ply" and "sample_gg1.ply"
+
+```python
+
+```
+
+### Matlab files
+
+Extract the samples from the entire slide and create 2d density plot for collected real data:
+
+.\Microgel\16-FM\pc16fm_real.m
+
+![](assets/2023-02-06-04-27-24-den-S1.png)
+
+Create 2d density plot for "go""gg" files
+
+.\Microgel\16-FM\pc16fm_gogg.m
+
+![](assets/2023-02-06-04-23-14-den-S1gg.png)
