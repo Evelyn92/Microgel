@@ -85,15 +85,13 @@ Extract the samples from the entire slide and create 2d density plot for collect
 
 .\Microgel\16-FM\pc16fm_real.m
 
-![](assets/2023-02-06-04-27-24-den-S1.png)
-
 Create 2d density plot for "go""gg" files
 
 .\Microgel\16-FM\pc16fm_gogg.m
 
-![](assets/2023-02-06-04-23-14-den-S1gg.png)
-
 # Jupyter Notebooks
+
+.\Microgel\jupyter_notes
 
 - main_project_real_data_007.ipynb
   
