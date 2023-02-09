@@ -275,30 +275,30 @@ end
     close all;
 end
 %     %% Calculate the correlation
-% close all;
-% index_max=0;
-% corr_mat = zeros(20,20);
-% for cor_i=1:20
-%     sum_cur=0;
-%     for cor_j=1:20
-%         r = corrcoef(density_vector(:,cor_i), density_vector(:,cor_j));
-%         corr_mat(cor_i,cor_j)=r(1,2);
-% %         sum_cur=sum_cur+r[0, 1]
-% %         if(sum_cur>sum_hist):
-% %             sum_hist=sum_cur
-% %             index_max=i
-% %         end
-%     end
-% end
-% [sorted_corr_sum, sample_index] = sort(sum(corr_mat),'descend');
-% % Write the result of sample selection into txt
-% Sample_sel_info=strcat(string(temperature),'C_sample_selection_info.txt');
-% % %open file identifier
-% % fid=fopen(Sample_sel_info,'w');
-% % fprintf(fid, ['The sorted samples w.r.t. the sum of correlation'  '\n']);
-% % fclose(fid);
-% 
-% T = table(sample_index', sorted_corr_sum', 'VariableNames', { 'Sample Index', 'Sum of Correlation'} );
-% % Write data to text file
-% cd D:\forClone\Hiwi\Microgel\4_Microgel_plotter_V1_density
-% writetable(T, Sample_sel_info)
+close all;
+index_max=0;
+corr_mat = zeros(20,20);
+for cor_i=1:20
+    sum_cur=0;
+    for cor_j=1:20
+        r = corrcoef(density_vector(:,cor_i), density_vector(:,cor_j));
+        corr_mat(cor_i,cor_j)=r(1,2);
+%         sum_cur=sum_cur+r[0, 1]
+%         if(sum_cur>sum_hist):
+%             sum_hist=sum_cur
+%             index_max=i
+%         end
+    end
+end
+[sorted_corr_sum, sample_index] = sort(sum(corr_mat),'descend');
+% Write the result of sample selection into txt
+Sample_sel_info=strcat(string(temperature),'C_sample_selection_info.txt');
+% %open file identifier
+% fid=fopen(Sample_sel_info,'w');
+% fprintf(fid, ['The sorted samples w.r.t. the sum of correlation'  '\n']);
+% fclose(fid);
+
+T = table(sample_index', sorted_corr_sum', 'VariableNames', { 'Sample Index', 'Sum of Correlation'} );
+% Write data to text file
+cd D:\forClone\Hiwi\Microgel\4_Microgel_plotter_V1_density
+writetable(T, Sample_sel_info)
